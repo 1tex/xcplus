@@ -6,7 +6,7 @@
         <groupId>com.tyzhao</groupId>
         <artifactId>xcplus-parent</artifactId>
         <version>0.0.1-SNAPSHOT</version>
-        <relativePath>../xcplus-parent</relativePath>
+        <relativePath>../../xcplus-parent</relativePath>
     </parent>
 
     <artifactId>xcplus-base</artifactId>
