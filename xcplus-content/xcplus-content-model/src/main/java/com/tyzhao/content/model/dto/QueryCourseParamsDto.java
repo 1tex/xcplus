@@ -1,4 +1,4 @@
-package com.tyzhao.model.dto;
+package com.tyzhao.content.model.dto;
 
 import lombok.Data;
 
