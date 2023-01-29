@@ -1,4 +1,4 @@
-package com.tyzhao.model.po;
+package com.tyzhao.content.model.po;
 
 import com.baomidou.mybatisplus.annotation.*;
 import lombok.Data;
