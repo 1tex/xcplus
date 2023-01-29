@@ -1,4 +1,4 @@
-package com.tyzhao.content;
+package com.tyzhao;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
