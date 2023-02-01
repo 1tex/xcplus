@@ -1,4 +1,4 @@
-package com.xuecheng.generator;
+package com.tyzhao.generator;
 
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.annotation.FieldFill;
@@ -13,10 +13,10 @@ import java.util.Arrays;
 /**
  * MyBatis-Plus 代码生成类
  */
-public class OrderCodeGenerator {
+public class ContentCodeGenerator {
 
 	// TODO 修改服务名以及数据表名
-	private static final String SERVICE_NAME = "orders";
+	private static final String SERVICE_NAME = "content";
 
 	//数据库账号
 	private static final String DATA_SOURCE_USER_NAME  = "root";
@@ -25,10 +25,16 @@ public class OrderCodeGenerator {
 	//生成的表
 	private static final String[] TABLE_NAMES = new String[]{
 //			"mq_message",
-//			"mq_message_history",
-			"xc_orders",
-			"xc_orders_goods",
-			"xc_pay_record"
+//			"mq_message_history"
+			 "course_base",
+			 "course_market",
+			 "teachplan",
+			 "teachplan_media",
+			 "course_teacher",
+			"course_category"
+//			 "course_publish",
+//			 "course_publish_pre"
+//			"course_category"
 	};
 
 	// TODO 默认生成entity，需要生成DTO修改此变量
@@ -44,13 +50,13 @@ public class OrderCodeGenerator {
 		GlobalConfig gc = new GlobalConfig();
 		gc.setFileOverride(true);
 		//生成路径
-		gc.setOutputDir(System.getProperty("user.dir") + "/xuecheng-plus-generator/src/main/java");
+		gc.setOutputDir(System.getProperty("user.dir") + "/xcplus-generator/src/main/java");
 		gc.setAuthor("itcast");
 		gc.setOpen(false);
 		gc.setSwagger2(false);
 		gc.setServiceName("%sService");
-		gc.setBaseResultMap(true);
-		gc.setBaseColumnList(true);
+        gc.setBaseResultMap(true);
+        gc.setBaseColumnList(true);
 
 		if (IS_DTO) {
 			gc.setSwagger2(true);
@@ -61,7 +67,7 @@ public class OrderCodeGenerator {
 		// 数据库配置
 		DataSourceConfig dsc = new DataSourceConfig();
 		dsc.setDbType(DbType.MYSQL);
-		dsc.setUrl("jdbc:mysql://192.168.101.65:3306/xcplus_" + SERVICE_NAME
+		dsc.setUrl("jdbc:mysql://192.168.101.65:3306/xc1tex_" + SERVICE_NAME
 				+ "?serverTimezone=UTC&useUnicode=true&useSSL=false&characterEncoding=utf8");
 //		dsc.setDriverName("com.mysql.jdbc.Driver");
 		dsc.setDriverName("com.mysql.cj.jdbc.Driver");
@@ -72,7 +78,7 @@ public class OrderCodeGenerator {
 		// 包配置
 		PackageConfig pc = new PackageConfig();
 		pc.setModuleName(SERVICE_NAME);
-		pc.setParent("com.xuecheng");
+		pc.setParent("com.tyzhao");
 
 		pc.setServiceImpl("service.impl");
 		pc.setXml("mapper");

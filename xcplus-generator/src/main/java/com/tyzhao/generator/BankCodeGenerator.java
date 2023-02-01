@@ -1,4 +1,4 @@
-package com.xuecheng.generator;
+package com.tyzhao.generator;
 
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.annotation.FieldFill;
@@ -13,27 +13,15 @@ import java.util.Arrays;
 /**
  * MyBatis-Plus 代码生成类
  */
-public class ContentCodeGenerator {
+public class BankCodeGenerator {
 
 	// TODO 修改服务名以及数据表名
-	private static final String SERVICE_NAME = "content";
-
-	//数据库账号
+	private static final String SERVICE_NAME = "bank1";
 	private static final String DATA_SOURCE_USER_NAME  = "root";
-	//数据库密码
-	private static final String DATA_SOURCE_PASSWORD  = "mysql";
-	//生成的表
+	private static final String DATA_SOURCE_PASSWORD  = "root";
 	private static final String[] TABLE_NAMES = new String[]{
-//			"mq_message",
-//			"mq_message_history"
-			 "course_base",
-			 "course_market",
-			 "teachplan",
-			 "teachplan_media",
-			 "course_teacher",
-//			 "course_publish",
-//			 "course_publish_pre"
-//			"course_category"
+			"account_info",
+			"de_duplication",
 	};
 
 	// TODO 默认生成entity，需要生成DTO修改此变量
@@ -48,8 +36,7 @@ public class ContentCodeGenerator {
 		// 全局配置
 		GlobalConfig gc = new GlobalConfig();
 		gc.setFileOverride(true);
-		//生成路径
-		gc.setOutputDir(System.getProperty("user.dir") + "/xcplus-generator/src/main/java");
+		gc.setOutputDir(System.getProperty("user.dir") + "/xuecheng-plus-generator/src/main/java");
 		gc.setAuthor("itcast");
 		gc.setOpen(false);
 		gc.setSwagger2(false);
@@ -66,18 +53,16 @@ public class ContentCodeGenerator {
 		// 数据库配置
 		DataSourceConfig dsc = new DataSourceConfig();
 		dsc.setDbType(DbType.MYSQL);
-		dsc.setUrl("jdbc:mysql://192.168.101.65:3306/xc1tex_" + SERVICE_NAME
-				+ "?serverTimezone=UTC&useUnicode=true&useSSL=false&characterEncoding=utf8");
-//		dsc.setDriverName("com.mysql.jdbc.Driver");
-		dsc.setDriverName("com.mysql.cj.jdbc.Driver");
+		dsc.setUrl("jdbc:mysql://localhost:3306/" + SERVICE_NAME
+				+ "?useUnicode=true&useSSL=false&characterEncoding=utf8");
+		dsc.setDriverName("com.mysql.jdbc.Driver");
 		dsc.setUsername(DATA_SOURCE_USER_NAME);
 		dsc.setPassword(DATA_SOURCE_PASSWORD);
 		mpg.setDataSource(dsc);
 
 		// 包配置
 		PackageConfig pc = new PackageConfig();
-		pc.setModuleName(SERVICE_NAME);
-		pc.setParent("com.tyzhao");
+		pc.setParent("com.xuecheng.rocketmq");
 
 		pc.setServiceImpl("service.impl");
 		pc.setXml("mapper");
