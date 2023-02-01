@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <artifactId>xcplus-parent</artifactId>
+        <groupId>com.tyzhao</groupId>
+        <version>0.0.1-SNAPSHOT</version>
+        <relativePath>../xcplus-parent</relativePath>
+    </parent>
+    <artifactId>xcplus-system</artifactId>
+    <name>xcplus-system</name>
+    <description>xcplus-system</description>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>xcplus-system-api</module>
+        <module>xcplus-system-service</module>
+        <module>xcplus-system-model</module>
+    </modules>
+</project>

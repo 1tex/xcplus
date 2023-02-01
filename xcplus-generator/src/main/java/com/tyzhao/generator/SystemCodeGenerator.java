@@ -1,4 +1,4 @@
-package com.xuecheng.generator;
+package com.tyzhao.generator;
 
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.annotation.FieldFill;
@@ -13,25 +13,16 @@ import java.util.Arrays;
 /**
  * MyBatis-Plus 代码生成类
  */
-public class UcenterCodeGenerator {
+public class SystemCodeGenerator {
 
 	// TODO 修改服务名以及数据表名
-	private static final String SERVICE_NAME = "ucenter";
+	private static final String SERVICE_NAME = "system";
 
-	//数据库账号
 	private static final String DATA_SOURCE_USER_NAME  = "root";
-	//数据库密码
 	private static final String DATA_SOURCE_PASSWORD  = "mysql";
-	//生成的表
 	private static final String[] TABLE_NAMES = new String[]{
-			"xc_company",
-			"xc_company_user",
-			"xc_menu",
-			"xc_permission",
-			"xc_role",
-			"xc_teacher",
-			"xc_user",
-			"xc_user_role"
+			"course_category",
+			"dictionary",
 	};
 
 	// TODO 默认生成entity，需要生成DTO修改此变量
@@ -46,8 +37,7 @@ public class UcenterCodeGenerator {
 		// 全局配置
 		GlobalConfig gc = new GlobalConfig();
 		gc.setFileOverride(true);
-		//生成路径
-		gc.setOutputDir(System.getProperty("user.dir") + "/xuecheng-plus-generator/src/main/java");
+		gc.setOutputDir(System.getProperty("user.dir") + "/xcplus-generator/src/main/java");
 		gc.setAuthor("itcast");
 		gc.setOpen(false);
 		gc.setSwagger2(false);
@@ -64,9 +54,8 @@ public class UcenterCodeGenerator {
 		// 数据库配置
 		DataSourceConfig dsc = new DataSourceConfig();
 		dsc.setDbType(DbType.MYSQL);
-		dsc.setUrl("jdbc:mysql://192.168.101.65:3306/xcplus_users"
-				+ "?serverTimezone=UTC&useUnicode=true&useSSL=false&characterEncoding=utf8");
-//		dsc.setDriverName("com.mysql.jdbc.Driver");
+		dsc.setUrl("jdbc:mysql://192.168.101.65:3306/xc1tex_" + SERVICE_NAME
+				+ "?useUnicode=true&useSSL=false&characterEncoding=utf8");
 		dsc.setDriverName("com.mysql.cj.jdbc.Driver");
 		dsc.setUsername(DATA_SOURCE_USER_NAME);
 		dsc.setPassword(DATA_SOURCE_PASSWORD);
@@ -75,7 +64,7 @@ public class UcenterCodeGenerator {
 		// 包配置
 		PackageConfig pc = new PackageConfig();
 		pc.setModuleName(SERVICE_NAME);
-		pc.setParent("com.xuecheng");
+		pc.setParent("com.tyzhao");
 
 		pc.setServiceImpl("service.impl");
 		pc.setXml("mapper");

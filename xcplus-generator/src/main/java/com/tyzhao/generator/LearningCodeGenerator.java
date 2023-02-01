@@ -1,4 +1,4 @@
-package com.xuecheng.generator;
+package com.tyzhao.generator;
 
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.annotation.FieldFill;
@@ -40,7 +40,7 @@ public class LearningCodeGenerator {
 		GlobalConfig gc = new GlobalConfig();
 		gc.setFileOverride(true);
 		//生成路径
-		gc.setOutputDir(System.getProperty("user.dir") + "/xuecheng-plus-generator/src/main/java");
+		gc.setOutputDir(System.getProperty("user.dir") + "/xcplus-generator/src/main/java");
 		gc.setAuthor("itcast");
 		gc.setOpen(false);
 		gc.setSwagger2(false);

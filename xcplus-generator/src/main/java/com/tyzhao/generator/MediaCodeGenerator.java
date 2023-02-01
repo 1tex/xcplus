@@ -1,4 +1,4 @@
-package com.xuecheng.generator;
+package com.tyzhao.generator;
 
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.annotation.FieldFill;
@@ -13,27 +13,20 @@ import java.util.Arrays;
 /**
  * MyBatis-Plus 代码生成类
  */
-public class MessageCodeGenerator {
+public class MediaCodeGenerator {
 
 	// TODO 修改服务名以及数据表名
-	private static final String SERVICE_NAME = "messagesdk";
+	private static final String SERVICE_NAME = "media";
 
-	//数据库账号
 	private static final String DATA_SOURCE_USER_NAME  = "root";
-	//数据库密码
 	private static final String DATA_SOURCE_PASSWORD  = "mysql";
-	//生成的表
 	private static final String[] TABLE_NAMES = new String[]{
+			"media_files",
+			"media_process",
+			"media_process_history",
 			"mq_message",
 			"mq_message_history"
-//			 "course_base",
-//			 "course_market",
-//			 "teachplan",
-//			 "teachplan_media",
-//			 "course_teacher",
-//			 "course_pub",
-//			 "course_pub_pre"
-//			"course_category"
+			// "live_course",
 	};
 
 	// TODO 默认生成entity，需要生成DTO修改此变量
@@ -48,8 +41,7 @@ public class MessageCodeGenerator {
 		// 全局配置
 		GlobalConfig gc = new GlobalConfig();
 		gc.setFileOverride(true);
-		//生成路径
-		gc.setOutputDir(System.getProperty("user.dir") + "/xuecheng-plus-generator/src/main/java");
+		gc.setOutputDir(System.getProperty("user.dir") + "/xcplus-generator/src/main/java");
 		gc.setAuthor("itcast");
 		gc.setOpen(false);
 		gc.setSwagger2(false);
@@ -66,9 +58,8 @@ public class MessageCodeGenerator {
 		// 数据库配置
 		DataSourceConfig dsc = new DataSourceConfig();
 		dsc.setDbType(DbType.MYSQL);
-		dsc.setUrl("jdbc:mysql://192.168.101.65:3306/xcplus_content"
-				+ "?serverTimezone=UTC&useUnicode=true&useSSL=false&characterEncoding=utf8");
-//		dsc.setDriverName("com.mysql.jdbc.Driver");
+		dsc.setUrl("jdbc:mysql://192.168.101.65:3306/xc1tex_media"
+				+ "?useUnicode=true&useSSL=false&characterEncoding=utf8");
 		dsc.setDriverName("com.mysql.cj.jdbc.Driver");
 		dsc.setUsername(DATA_SOURCE_USER_NAME);
 		dsc.setPassword(DATA_SOURCE_PASSWORD);
@@ -97,7 +88,8 @@ public class MessageCodeGenerator {
 		strategy.setRestControllerStyle(true);
 		strategy.setInclude(TABLE_NAMES);
 		strategy.setControllerMappingHyphenStyle(true);
-		strategy.setTablePrefix(pc.getModuleName() + "_");
+		//此项是将生成的po类名中去掉pc.getModuleName() + "_"
+//		strategy.setTablePrefix(pc.getModuleName() + "_");
 		// Boolean类型字段是否移除is前缀处理
 		strategy.setEntityBooleanColumnRemoveIsPrefix(true);
 		strategy.setRestControllerStyle(true);

@@ -2,6 +2,8 @@ package com.tyzhao.content.service;
 
 import com.tyzhao.base.model.PageParams;
 import com.tyzhao.base.model.PageResult;
+import com.tyzhao.content.model.dto.AddCourseDto;
+import com.tyzhao.content.model.dto.CourseBaseInfoDto;
 import com.tyzhao.content.model.dto.QueryCourseParamsDto;
 import com.tyzhao.content.model.po.CourseBase;
 
@@ -23,4 +25,11 @@ public interface CourseBaseInfoService {
      */
     public PageResult<CourseBase>  queryCourseBaseList(PageParams pageParams, QueryCourseParamsDto queryCourseParamsDto);
 
+    /**
+     * 新增课程
+     * @param companyId 培训机构id
+     * @param addCourseDto 新增课程信息
+     * @return 课程信息包括基本信息、营销信息
+     */
+    public CourseBaseInfoDto createCourseBase(Long companyId, AddCourseDto addCourseDto);
 }
